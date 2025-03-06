@@ -1,6 +1,20 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/layout/Navbar";
+import { Creepster } from "next/font/google";
+import Hero from "@/components/layout/Hero";
+import Portfolio from "@/components/layout/Portfolio";
+import About from "@/components/layout/About";
+import Services from "@/components/layout/Services";
+import Testimonials from "@/components/layout/Testimonials";
+import Contact from "@/components/layout/Contact";
+import Footer from "@/components/layout/Footer";
+
+
+
+const creepster = Creepster({ subsets: ["latin"], weight: "400" });
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,9 +39,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+  className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#dacfae] text-[#ece7d5] ${creepster.className}`}
+>
+    <Navbar />
+    <Hero />
+    <Portfolio />
+    <About />
+    <Services />
+    <Testimonials />
+    <Contact />
         {children}
+    <Footer />
       </body>
     </html>
   );
